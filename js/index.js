@@ -18,9 +18,7 @@ copyright.innerHTML = `Copyright &copy; Amirhossein Olyaei ${thisYear}`;
 footer.appendChild(copyright);
 
 
-
 // Create List of Skills
-// Open your index.js file
 // List your technical skills by creating an Array of String values and store it in a variable named skills
 const skills = ['JavaScript', 'HTML', 'CSS', 'React'];
 
@@ -51,7 +49,7 @@ for (let i = 0; i < skills.length; i++) {
 const messageForm = document.querySelector('form[name="leave_message"]');
 
 // Add an event listener to the messageForm element that handles the "submit" event
-messageForm.addEventListener('submit', function(event) {
+messageForm.addEventListener('submit', function (event) {
     // Inside the callback function for your event listener, prevent the default refreshing behavior of the "submit" event
     event.preventDefault();
 
@@ -65,27 +63,46 @@ messageForm.addEventListener('submit', function(event) {
     console.log('Email:', usersEmail);
     console.log('Message:', usersMessage);
 
+    // Display Messages in List
+    // Inside the callback function for your event listener, select the #messages section by id and store it in a variable named messageSection
+    const messageSection = document.querySelector('#messages');
+
+    // Inside the callback function for your event listener, query the messageSection to find the <ul> element and store it in a variable named messageList
+    const messageList = messageSection.querySelector('ul');
+
+    // Create a new list item (li) element and store it in a variable named newMessage
+    const newMessage = document.createElement('li');
+
+    // Set the inner HTML of your newMessage element with the information from the form fields
+    newMessage.innerHTML = `
+    <a href="mailto:${usersEmail}">${usersName}</a>
+    <span>${usersMessage}</span>
+  `;
+
+    // Create a new <button> element and store it in a variable named removeButton
+    const removeButton = document.createElement('button');
+
+    // Set the inner text of removeButton to "remove"
+    removeButton.innerText = 'remove';
+
+    // Set the type attribute of removeButton to "button"
+    removeButton.type = 'button';
+
+    // Add an event listener to the removeButton element that handles the "click" event
+    removeButton.addEventListener('click', function () {
+        // Inside the callback function, find the button's parent element using DOM Traversal and store it in a variable named entry
+        const entry = removeButton.parentNode;
+
+        // Remove the entry element from the DOM
+        entry.remove();
+    });
+
+    // Append the removeButton to the newMessage element
+    newMessage.appendChild(removeButton);
+
+    // Append the newMessage to the messageList element
+    messageList.appendChild(newMessage);
+
     // Inside the callback function for your event listener, clear the form fields
     messageForm.reset();
 });
-
-
-
-// Display Messages in List
-// Open index.js and start inside the event listener callback function on the line above where you reset the form
-// Using "DOM Selection", select the #messages section by id and store it in a variable named messageSection
-// Using "DOM Selection", query the messageSection (instead of the entire document) to find the <ul> element and store it in a variable named messageList
-// Create a new list item (li) element and store it in a variable named newMessage
-// On the next line, set the inner HTML of your newMessage element with the following information:
-//     <a> element that displays the "name" and links to the "email" (hint: use the mailto: prefix)
-//         <span> element that displays the "message"
-//  Create a new <button> element and store it in a variable named removeButton
-// Set the inner text to "remove"
-// Set the type attribute to "button"
-// Add an event listener to the removeButton element that handles the "click" event
-// Inside the callback function, find the button's parent element using DOM Traversal (hint: parentNode property) and store it in a variable named entry
-// Remove the entry element from the DOM (hint: remove method)
-//  Append the removeButton to the newMessage element
-// hint: appendChild method
-//  Append the newMessage to the messageList element
-//  Save and refresh your browser
