@@ -76,7 +76,7 @@ messageForm.addEventListener('submit', function (event) {
     // Set the inner HTML of your newMessage element with the information from the form fields
     newMessage.innerHTML = `
     <a href="mailto:${usersEmail}">${usersName}</a>
-    <span>${usersMessage}</span>
+    <span>wrote: ${usersMessage}</span>
   `;
 
     // Create a new <button> element and store it in a variable named removeButton
