@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:font-family="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
     <title>Amirhossein Olyaei's Portfolio</title>
 </head>
 
-<body>
+<body style="font-family: sans-serif">
 <!-- About section -->
 <section>
     <h1>About:</h1>
@@ -226,11 +226,21 @@
 <section>
     <h2>Leave a Message</h2>
     <form name="leave_message">
-        <label>User name:</label>
-        <input type="text" name="usersName" required><br>
-        <label>Email:</label>
-        <input type="email" name="usersEmail" required><br>
-        <textarea name="usersMessage" required></textarea><br>
+        <div>
+            <label>Name<br>
+                <input type="text" name="usersName" required>
+            </label>
+        </div>
+        <div>
+            <label>Email Address<br>
+                <input type="email" name="usersEmail" required>
+            </label>
+        </div>
+        <div>
+            <label>Message<br>
+                <textarea name="usersMessage" required></textarea>
+            </label>
+        </div>
         <button type="submit">submit</button>
     </form>
 </section>
