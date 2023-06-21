@@ -65,7 +65,7 @@ messageForm.addEventListener('submit', function (event) {
 
     // Display Messages in List
     // Inside the callback function for your event listener, select the #messages section by id and store it in a variable named messageSection
-    const messageSection = document.querySelector('#messages');
+    const messageSection = document.querySelector('#usersMessage');
 
     // Inside the callback function for your event listener, query the messageSection to find the <ul> element and store it in a variable named messageList
     const messageList = messageSection.querySelector('ul');
@@ -73,47 +73,82 @@ messageForm.addEventListener('submit', function (event) {
     // Create a new list item (li) element and store it in a variable named newMessage
     const newMessage = document.createElement('li');
 
+    // Create a new <div> element to contain the message content and buttons
+    const messageContent = document.createElement('div');
+
     // Set the inner HTML of your newMessage element with the information from the form fields
     newMessage.innerHTML = `
     <a href="mailto:${usersEmail}">${usersName}</a>
     <span>wrote: ${usersMessage}</span>
+    <button class="edit-button">edit</button>
+    <button class="remove-button">remove</button>
   `;
 
-    // Check if the messageList is empty
-    if (messageList.childElementCount === 0) {
-        // If the list is empty, hide the messageSection
-        messageSection.style.display = 'none';
-    }
-});
-
-// Create a new <button> element and store it in a variable named removeButton
-const removeButton = document.createElement('button');
-
-// Set the inner text of removeButton to "remove"
-removeButton.innerText = 'remove';
-
-// Set the type attribute of removeButton to "button"
-removeButton.type = 'button';
-
-// Add an event listener to the removeButton element that handles the "click" event
-removeButton.addEventListener('click', function () {
-    // Inside the callback function, find the button's parent element using DOM Traversal and store it in a variable named entry
-    const entry = removeButton.parentNode;
-
-    // Remove the entry element from the DOM
-    entry.remove();
-});
-
-// Append the removeButton to the newMessage element
-newMessage.appendChild(removeButton);
+// Append the messageContent to the newMessage element
+    messageContent.appendChild(newMessage)
 
 // Append the newMessage to the messageList element
-messageList.appendChild(newMessage);
+    messageList.appendChild(messageContent);
 
 // Inside the callback function for your event listener, clear the form fields
-messageForm.reset();
+    messageForm.reset();
 
 // Show the messageSection since the list is not empty
-messageSection.style.display = 'block';
-})
-;
+    messageSection.style.display = 'block';
+
+// Add an event listener for the "edit" button
+    const editButton = newMessage.querySelector('.edit-button')
+    editButton.addEventListener('click', function () {
+        // Create an input field for the user to edit the message
+        const inputField = document.createElement('input');
+        inputField.type = 'text';
+        inputField.value = usersMessage;
+
+        // Replace the message text with the input field
+        const messageSpan = newMessage.querySelector('span');
+        messageSpan.replaceWith(inputField);
+
+        // Create a "save" button
+        const saveButton = document.createElement('button');
+        saveButton.innerText = 'save';
+
+        // Add an event listener for the "save" button
+        saveButton.addEventListener('click', function () {
+
+            // Get the new message from the input field
+            const newMessage = inputField.value;
+
+            // Replace the input field with the updated message text
+            inputField.replaceWith(messageSpan);
+
+            // Update the message text with the new input value
+            messageSpan.innerText = newMessage;
+            // Remove the save button after saving
+            saveButton.remove();
+        });
+
+// Add the save button after the input field
+        newMessage.appendChild(saveButton);
+
+// Remove the edit button
+        editButton.remove();
+    });
+
+// Add an event listener for the "remove" button
+    const removeButton = newMessage.querySelector('.remove-button');
+    removeButton.addEventListener('click', function () {
+// Find the message entry using DOM Traversal
+        const entry = removeButton.closest('li');
+
+        // Remove the entry element from the DOM
+        entry.remove();
+
+// Check if the messageList is empty
+        if (messageList.childElementCount === 0) {
+            // If the list is empty, hide the messageSection
+            messageSection.style.display = 'none';
+        }
+
+    });
+
+});
