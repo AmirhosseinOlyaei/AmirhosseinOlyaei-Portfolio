@@ -79,30 +79,41 @@ messageForm.addEventListener('submit', function (event) {
     <span>wrote: ${usersMessage}</span>
   `;
 
-    // Create a new <button> element and store it in a variable named removeButton
-    const removeButton = document.createElement('button');
-
-    // Set the inner text of removeButton to "remove"
-    removeButton.innerText = 'remove';
-
-    // Set the type attribute of removeButton to "button"
-    removeButton.type = 'button';
-
-    // Add an event listener to the removeButton element that handles the "click" event
-    removeButton.addEventListener('click', function () {
-        // Inside the callback function, find the button's parent element using DOM Traversal and store it in a variable named entry
-        const entry = removeButton.parentNode;
-
-        // Remove the entry element from the DOM
-        entry.remove();
-    });
-
-    // Append the removeButton to the newMessage element
-    newMessage.appendChild(removeButton);
-
-    // Append the newMessage to the messageList element
-    messageList.appendChild(newMessage);
-
-    // Inside the callback function for your event listener, clear the form fields
-    messageForm.reset();
+    // Check if the messageList is empty
+    if (messageList.childElementCount === 0) {
+        // If the list is empty, hide the messageSection
+        messageSection.style.display = 'none';
+    }
 });
+
+// Create a new <button> element and store it in a variable named removeButton
+const removeButton = document.createElement('button');
+
+// Set the inner text of removeButton to "remove"
+removeButton.innerText = 'remove';
+
+// Set the type attribute of removeButton to "button"
+removeButton.type = 'button';
+
+// Add an event listener to the removeButton element that handles the "click" event
+removeButton.addEventListener('click', function () {
+    // Inside the callback function, find the button's parent element using DOM Traversal and store it in a variable named entry
+    const entry = removeButton.parentNode;
+
+    // Remove the entry element from the DOM
+    entry.remove();
+});
+
+// Append the removeButton to the newMessage element
+newMessage.appendChild(removeButton);
+
+// Append the newMessage to the messageList element
+messageList.appendChild(newMessage);
+
+// Inside the callback function for your event listener, clear the form fields
+messageForm.reset();
+
+// Show the messageSection since the list is not empty
+messageSection.style.display = 'block';
+})
+;
