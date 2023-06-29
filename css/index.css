@@ -1,0 +1,84 @@
+/* Change the background color of the page body */
+body {
+    background-color: #f2f2f2;
+}
+
+/* Change the default text color */
+body {
+    color: #333;
+}
+
+/* Define the font family for the entire page or just a section */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Add spacing (padding/margin) between sections */
+section {
+    margin-bottom: 20px;
+}
+
+/* Change the font size, weight, and color of all headings */
+h1, h2, h4 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Transform the "Experience" list items into styled blocks */
+section ul li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    /*margin-bottom: 10px;*/
+}
+
+/* Transform the "Skills" list items into styled blocks */
+#skills ul li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    /*margin-bottom: 10px;*/
+}
+
+/* Style the "Leave a Message" form elements */
+form[name="leave_message"] label {
+    font-size: 14px;
+    color: #555;
+}
+
+form[name="leave_message"] input,
+form[name="leave_message"] textarea {
+    font-size: 16px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+form[name="leave_message"] button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* Transform the "Messages" list items into styled blocks and customize the remove button */
+#usersMessage ul li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#usersMessage ul li button {
+    padding: 5px 10px;
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* Change the spacing and background color of the footer */
+footer {
+    padding: 20px;
+    background-color: #555;
+    color: #fff;
+}
