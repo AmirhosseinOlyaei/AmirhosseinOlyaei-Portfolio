@@ -20,7 +20,18 @@ footer.appendChild(copyright);
 
 // Create List of Skills
 // List your technical skills by creating an Array of String values and store it in a variable named skills
-const skills = ['JavaScript', 'HTML', 'CSS', 'React'];
+const skills = [
+    'Prototyping: Figma',
+    'Project management: Agile-Scrum in ZenHub',
+    'Web Development: HTML, CSS, TailwindCSS, DaisyUI, JavaScript, React.js, API',
+    'Version control: Git, GitHub',
+    'IDEs: WebStorm, VSCode, CodeSandbox, JSitor, Replit',
+    'Database: Navicat, Supabase, PostgreSQL',
+    'Knowledge base / Note taking: Markdown in Logseq, .md, and presentations',
+    'Production / Deployment: Vercel',
+    'Introduction to Node.js, Docker, and AWS',
+    'Collaboration: Slack, Zoom, Around'
+];
 
 // Using "DOM Selection", select the #skills section by id and store it in a variable named skillsSection
 // hint: querySelector or getElementById method

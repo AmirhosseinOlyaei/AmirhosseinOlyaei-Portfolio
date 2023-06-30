@@ -1,258 +1,355 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:font-family="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amirhossein Olyaei's Portfolio</title>
+    <title>Amirhossein Olyaei</title>
+    <meta name="author" content="Amirhossein Olyaei">
+    <meta name="description" content="Portfolio website for Amirhossein Olyaei">
+    <meta name="keywords" content="Amirhossein Olyaei, Portfolio, Personal Website, Software Engineer">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
-<body style="font-family: sans-serif">
-<!-- About section -->
-<section>
-    <h1>About:</h1>
-    <p>Meet Amir, a curious and enthusiastic individual who has embraced the power of knowledge and technology. With
-        a
-        keen interest in exploring the vast expanse of information, Amir has made great use of platforms, leveraging
-        its
-        capabilities to expand his understanding of diverse topics. This inquisitive nature has driven Amir to delve
-        into a myriad of subjects, from science and technology to art and culture, allowing him to develop a broad
-        perspective and a well-rounded approach to problem-solving. His passion for learning and adapting to new
-        ideas
-        is matched only by his dedication to delivering exceptional results. With an ever-growing thirst for
-        knowledge
-        and a willingness to push the boundaries, Amir is poised to make a significant impact in any endeavor they
-        undertake.</p>
+<body>
+<!--header-->
+<header>
+    <div class="container">
+        <nav class="nav">
+            <ul class="menu" role="list">
+                <li class="menu__item">
+                    <img class="image image--small image--rounded" src="images/profile_picture.jpeg"
+                         role="presentation"/>
+                </li>
+                <li class="menu__item menu__item--large">
+                    <a class="link link--no-color strong" href="">Amirhossein Olyaei</a>
+                </li>
+            </ul>
+
+            <ul class="menu menu--hide-mobile" role="list">
+                <li class="menu__item">
+                    <a class="link link--no-color" href="#about">About</a>
+                </li>
+                <li class="menu__item">
+                    <a class="link link--no-color" href="#projects">Projects</a>
+                </li>
+                <li class="menu__item">
+                    <a class="link link--no-color" href="#skills">Skills</a>
+                </li>
+                <li class="menu__item">
+                    <a class="link link--no-color" href="#documentation">GitHub</a>
+                </li>
+                <li class="menu__item">
+                    <a class="link link--no-color" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <!-- About section -->
+        <section id="about">
+            <h1>About:</h1>
+            <p>Meet Amir, a curious and enthusiastic individual who has embraced the power of knowledge and technology.
+                With
+                a
+                keen interest in exploring the vast expanse of information, Amir has made great use of platforms,
+                leveraging
+                its
+                capabilities to expand his understanding of diverse topics. This inquisitive nature has driven Amir to
+                delve
+                into a myriad of subjects, from science and technology to art and culture, allowing him to develop a
+                broad
+                perspective and a well-rounded approach to problem-solving. His passion for learning and adapting to new
+                ideas
+                is matched only by his dedication to delivering exceptional results. With an ever-growing thirst for
+                knowledge
+                and a willingness to push the boundaries, Amir is poised to make a significant impact in any endeavor
+                they
+                undertake.</p>
+
+            <br>
+            <p>Amir is an aspiring and passionate web developer who brings a unique blend of creativity and
+                technical
+                expertise to every project. With a deep-rooted love for coding and an eye for design, Amir creates
+                user-friendly
+                websites that captivate and engage visitors. Through his extensive exploration and utilization of
+                resources,
+                Amir has honed his skills in multiple programming languages and frameworks, enabling him to build
+                seamless
+                and
+                cutting-edge web solutions. His meticulous attention to detail and commitment to delivering high-quality
+                work
+                have earned him a reputation for excellence in the industry. Amir is not only a proficient problem
+                solver
+                but
+                also a skilled communicator, adept at translating complex technical concepts into convenient language.
+                With
+                a
+                genuine passion for bringing visions to life, Amir is eager to collaborate on exciting web development
+                projects
+                and create extraordinary digital experiences that leave a lasting impression.</p>
+            <br>
+
+            <strong>A highlight of my day is ...</strong>
+            <p> attending webinars and lectures to study new materials. I also enjoy communicating
+                through Slack with team members and getting involved in mentoring activities during study sessions.
+                These
+                experiences help me stay engaged, learn, and contribute to the success of the team.</p>
+
+        </section>
 
 
-    <p>Introducing Amir, an aspiring and passionate web developer who brings a unique blend of creativity and
-        technical
-        expertise to every project. With a deep-rooted love for coding and an eye for design, Amir creates
-        user-friendly
-        websites that captivate and engage visitors. Through his extensive exploration and utilization of resources,
-        Amir has honed his skills in multiple programming languages and frameworks, enabling him to build seamless
-        and
-        cutting-edge web solutions. His meticulous attention to detail and commitment to delivering high-quality
-        work
-        have earned him a reputation for excellence in the industry. Amir is not only a proficient problem solver
-        but
-        also a skilled communicator, adept at translating complex technical concepts into convenient language. With
-        a
-        genuine passion for bringing visions to life, Amir is eager to collaborate on exciting web development
-        projects
-        and create extraordinary digital experiences that leave a lasting impression.</p>
+        <!-- Experience section -->
+        <!-- exp 1: -->
+        <section id="projects">
+            <h1>Projects:</h1>
+
+            <h4>
+                Carnavalist
+            </h4>
+            <img src="https://camo.githubusercontent.com/4dde289fc116e20780023e48de37a113f4b3c77594c86662b336cc81ff27cc75/68747470733a2f2f692e696d6775722e636f6d2f72614d553554432e706e67"
+                 width="100%" alt="Carnavalist image" loading="lazy"/>
+
+            <ul>
+                <li>
+                    Redesigned Craigslist website to enhance user experience and interface.
+                </li>
+                <li>
+                    Established regular communication sessions for updates and feedback, clarifying team roles and
+                    responsibilities. Actively listened to comments and incorporated them into the project.
+                </li>
+            </ul>
+
+            <a href="https://hackmd.io/@amiro/craigslist#/" target="_blank">Presentation link</a>
+            <br>
+            <a href="https://team-carnival-the-craigslist-rebuild.vercel.app" target="_blank">Deployment</a>
+
+            <br><br>
+            <hr>
+            <br>
+
+            <!-- exp 2: -->
+            <h4>
+                Freedom
+            </h4>
+            <img src="https://github.com/AmirhosseinOlyaei/mobile-view-fb-tailwind/raw/main/asset/Screenshot%202023-02-06%20at%201.34.08%20AM.png"
+                 width="50%" alt="Freedom image" loading="lazy"/>
+
+            <ul>
+                <li>
+                    Simulated the Facebook mobile Favorites using TailwindCSS which received positive feedback from
+                    users
+                    and
+                    led to a 10% increase in website traffic.
+                </li>
+                <li>
+                    Improved my resilience and taught me the importance of finding solutions to overcome obstacles.
+                    Increased my
+                    productivity by 15%.
+                </li>
+            </ul>
+
+            <br>
+            <a href="https://mobile-view-fb-tailwind.vercel.app" target="_blank">Deployment</a>
+            <br><br>
+            <hr>
+            <br>
+
+            <!-- exp 3: -->
+            <h4>
+                CreativePainter.io
+            </h4>
+            <img src="https://camo.githubusercontent.com/e45f479471c7a8f5a8af6e589ccf9e9ae5f6b3aa2c5c72cc700c9507708f6c6a/68747470733a2f2f692e696d6775722e636f6d2f3944554b3477312e706e67"
+                 width="100%" alt="Painter image" loading="lazy"/>
+
+            <ul>
+                <li>
+                    The Artificial Intelligence (AI) Creative Painter project generates images based on civil rights
+                    history
+                    showcasing African American leaders in America.
+                </li>
+                <li>
+                    Our team was led by assigning roles, setting goals, and facilitating communication. Resulted in
+                    on-time
+                    project completion, exceeded client expectations, and a 20% increase in website traffic.
+                </li>
+            </ul>
 
 
-    <hr>
+            <a href="https://github.com/AmirhosseinOlyaei/creative-painter-io" target="_blank">Deployment</a>
+            <br><br>
+            <hr>
+            <br>
 
-    <p>A highlight of my day is attending webinars and lectures to study new materials. I also enjoy communicating
-        through Slack with team members and getting involved in mentoring activities during study sessions. These
-        experiences help me stay engaged, learn, and contribute to the success of the team.</p>
+            <!-- exp 4: -->
+            <h4>
+                Marketing AI App
+            </h4>
+            <img src="https://camo.githubusercontent.com/5dc830c6ef4577abe28718ff68d63916a5ad9bae92d0117403fc5d255af7c6ba/68747470733a2f2f692e696d6775722e636f6d2f4d4a67744630512e6a7067"
+                 width="100%" alt="Marketing AI image" loading="lazy"/>
+            <img src="https://camo.githubusercontent.com/d963116aff0a47f894a1ae71fb368c084d2a869e0927ace9d9d06f45e2047002/68747470733a2f2f692e696d6775722e636f6d2f593578453955332e6a7067"
+                 width="100%" alt="All projects image" loading="lazy"/>
 
-    <hr>
+            <ul>
+                <li>
+                    Developed Marketing AI web application life cycle in both the front and back end geared towards
+                    streamlining tasks, and providing a robust experience at scale while fostering cultural exchanges,
+                    and
+                    solving real-world problems.
+                </li>
+                <li>
+                    Collaborated on Agile-Scrum project management tool, to organize and prioritize tasks and the status
+                    of
+                    ongoing issues, honed teamwork and communication skills.
+                </li>
+                <li>
+                    Contributed ideas and received positive constructive feedback in stand-up sessions to enhance the
+                    overall
+                    user experience.
+                </li>
+                <li>
+                    Boosted satisfaction ratings by 25% and completed the project 1 week early. Gained valuable skills
+                    for
+                    future team-oriented work.
+                </li>
+                <li>
+                    Stack: Figma, Zenhub, HTML & CSS, TailwindCSS, DaisyUI, JavaScript, React.js, API, GitHub, Supabase,
+                    PostgeSQL, Vercel, Webstorm, Markdown
+                </li>
 
-    <p>A key skill I am currently developing is proficiency in programming languages and frameworks such as:
-    <ul>
-        <li>Web Development: #HTML, #CSS, #TailwindCSS, #DaisyUI, #JavaScript, #React.js, #API
-        </li>
-        <li>Version control: #Git / #GitHub
-        </li>
-        <li>IDEs: #WebStorm, #VSCode, #CodeSandbox, #JSitor, #replit
-        </li>
-        <li>Prototyping: #Figma
-        </li>
-        <li>Project management: #Agile-#Scrum in #ZenHub
-        </li>
-        <li>Database: #PostgreSQL in #Supabase
-        </li>
-        <li>Knowledge base / Note taking: #Markdown in #Logseq, .md, and presentations
-        </li>
-        <li>Production Deployment: #Vercel
-        </li>
-        <li>Introduction to #Node.js, #Docker, and #AWS
-        </li>
-        <li>Collaboration: #Slack, #Around
-        </li>
-    </ul>
+            </ul>
 
-    Meanwhile, I am developing my communication, teamwork, and networking skills.
-    </p>
+            <a href="https://hackmd.io/@amiro/marketing-ai" target="_blank">Presentation link</a>
+            <br>
+            <a href="https://github.com/AmirhosseinOlyaei/marketing-ai-app" target="_blank">Deployment</a>
 
-</section>
+        </section>
 
-<hr>
+        <!--skills-->
+        <section id="skills">
+            <h2>Skills</h2>
 
-<!-- Experience section -->
-<!-- exp 1: -->
-<section>
-    <h1>Experience:</h1>
+            <p>Key skills I am currently developing are proficiency in programming languages and frameworks such as:
 
-    <h4>
-        Carnavalist
-    </h4>
-    <img src="https://camo.githubusercontent.com/4dde289fc116e20780023e48de37a113f4b3c77594c86662b336cc81ff27cc75/68747470733a2f2f692e696d6775722e636f6d2f72614d553554432e706e67"
-         width="100%" alt="Carnavalist image" loading="lazy"/>
+            <p class="nav">
+                <a href="https://www.figma.com/" target="_blank" rel="noreferrer"><img
+                        src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/figma-colored.svg"
+                        width="36" height="36" alt="Figma" title="Figma"/></a>
+                <a href="https://www.zenhub.com/" target="_blank" rel="noreferrer"><img
+                        src="https://github.com/AmirhosseinOlyaei/AmirhosseinOlyaei/assets/20806019/dbf84553-e3d5-4dea-b9a0-68e59bd30413"
+                        width="36" height="36" alt=“Zenhub” title="Zenhub"/></a>
+                <a href="https://git-scm.com/" target="_blank" rel="noreferrer"><img
+                        src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/git-colored.svg"
+                        width="36" height="36" alt="Git" title="Git"/></a>
+                <a href=“https://github.com” target="_blank" rel="noreferrer"><img
+                        src="https://github.com/AmirhosseinOlyaei/AmirhosseinOlyaei/assets/20806019/a1504d1a-25d4-49fe-8683-a4c844c6ee0d"
+                        width="36" height="36" alt=“GitHub” title="GitHub"/></a>
+                <a href="https://www.jetbrains.com/webstorm/" target="_blank" rel="noreferrer"><img
+                        src="https://github.com/AmirhosseinOlyaei/AmirhosseinOlyaei/assets/20806019/7be8f6af-6928-4bf2-a2d9-f1cbe358aac6"
+                        width="36" height="36" alt=“Webstorm” title="Webstorm"/></a>
+                <a href=“https://code.visualstudio.com” target="_blank" rel="noreferrer"><img
+                        src="https://github.com/AmirhosseinOlyaei/AmirhosseinOlyaei/assets/20806019/92fc6718-3770-475f-b7f6-09693dda2515"
+                        width="36" height="36" alt=“VSCode” title="VSCode"/></a>
+                <a href="https://www.w3schools.com/html/default.asp" target="_blank" rel="noreferrer"><img
+                        src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/html5-colored.svg"
+                        width="36" height="36" alt="HTML5" title="HTML"/></a>
+                <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"><img
+                        src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/css3-colored.svg"
+                        width="36" height="36" alt="CSS3" title="CSS"/></a>
+                <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"><img
+                        src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/tailwindcss-colored.svg"
+                        width="36" height="36" alt="TailwindCSS" title="TailwindCSS"/></a>
+                <a href="https://daisyui.com/" target="_blank" rel="noreferrer"><img
+                        src="https://github.com/AmirhosseinOlyaei/AmirhosseinOlyaei/assets/20806019/374c1630-57bf-4d07-a1d7-920ceb75c276"
+                        width="36" height="36" alt=“DaisyUI” title="DaisyUI"/></a>
+                <a href="https://www.w3schools.com/js/" target="_blank" rel="noreferrer"><img
+                        src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg"
+                        width="36" height="36" alt="JavaScript" title="JavaScript"/></a>
+                <a href="https://react.dev/" target="_blank" rel="noreferrer"><img
+                        src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/react-colored.svg"
+                        width="36" height="36" alt="React" title="React"/></a>
+                <a href="https://www.redhat.com/en/topics/api/what-is-a-rest-api" target="_blank" rel="noreferrer"><img
+                        src="https://github.com/AmirhosseinOlyaei/AmirhosseinOlyaei/assets/20806019/33760bb7-4abf-4e8a-9601-b73fb75d984d"
+                        width="36" height="36" alt=“API” title="API"/></a>
+                <a href="" target="_blank" rel="noreferrer"><img
+                        src="https://github.com/AmirhosseinOlyaei/AmirhosseinOlyaei/assets/20806019/9c2dfc21-5462-492f-abd5-ca95c5a9fcb5"
+                        width="36" height="36" alt=“Navicat” title="Navicat"/></a>
+                <a href="https://app.supabase.com/" target="_blank" rel="noreferrer"><img
+                        src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/supabase-colored.svg"
+                        width="36" height="36" alt="Supabase" title="Supabase"/></a>
+                <a href="https://www.postgresql.org/" target="_blank" rel="noreferrer"><img
+                        src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/postgresql-colored.svg"
+                        width="36" height="36" alt="PostgreSQL" title="PostgreSQL"/></a>
+                <a href=“https://vercel.com” target="_blank" rel="noreferrer"><img
+                        src="https://github.com/AmirhosseinOlyaei/AmirhosseinOlyaei/assets/20806019/7fe34e36-a5aa-4eb5-8a2c-6b0473c12792"
+                        width="36" height="36" alt=“Vercel” title="Vercel"/></a>
+                <a href=“https://aws.amazon.com/” target="_blank" rel="noreferrer"><img
+                        src="https://github.com/AmirhosseinOlyaei/AmirhosseinOlyaei/assets/20806019/8dc46915-b409-4dcc-b503-4b8159f3b8df"
+                        width="36" height="36" alt=“AWS” title="AWS-Cloud-Practitioner"/></a>
+                <a href=“https://www.markdownguide.org/” target="_blank" rel="noreferrer"><img
+                        src="https://github.com/AmirhosseinOlyaei/AmirhosseinOlyaei/assets/20806019/e4ef57e4-cb5d-4f29-bf23-4c10a4e3c6bb"
+                        width="50" height="30" alt="Markdown" title="Markdown"/></a>
+                <a href=“https://logseq.com/” target="_blank" rel="noreferrer"><img
+                        src="https://github.com/AmirhosseinOlyaei/AmirhosseinOlyaei/assets/20806019/6594517f-68f3-41da-adce-c4875ed638e9"
+                        width="36" height="36" alt=“Logseq” title="Logseq"/></a>
+                <a href=“https://slack.com/” target="_blank" rel="noreferrer"><img
+                        src="https://github.com/AmirhosseinOlyaei/AmirhosseinOlyaei/assets/20806019/2f1ab7b4-49cd-4de2-b632-7b3c001fad97"
+                        width="36" height="36" alt=“Slack” title="Slack"/></a>
+            </p>
+            <ul></ul>
+            <br>
+            Meanwhile, I am developing my communication, teamwork, and networking skills.
+            </p>
+        </section>
 
-    <ul>
-        <li>
-            Redesigned Craigslist website to enhance user experience and interface.
-        </li>
-        <li>
-            Established regular communication sessions for updates and feedback, clarifying team roles and
-            responsibilities. Actively listened to comments and incorporated them into the project.
-        </li>
-    </ul>
+        <!-- Contact section -->
+        <section id="documentation">
+            <h1>Source Code:</h1>
+            <a href="https://github.com/AmirhosseinOlyaei">https://github.com/AmirhosseinOlyaei</a>
+            <br><br>
+        </section>
 
-    <a href="https://hackmd.io/@amiro/craigslist#/" target="_blank">Presentation link</a>
-    <br>
-    <a href="https://team-carnival-the-craigslist-rebuild.vercel.app" target="_blank">Deployment</a>
+        <!-- message-->
+        <section id="contact">
+            <h2>Leave a Message</h2>
+            <form name="leave_message">
+                <div>
+                    <label>Name<br>
+                        <input type="text" name="usersName" required>
+                    </label>
+                </div>
+                <div>
+                    <label>Email Address<br>
+                        <input type="email" name="usersEmail" required>
+                    </label>
+                </div>
+                <div>
+                    <label>Message<br>
+                        <textarea name="usersMessage" required></textarea>
+                    </label>
+                </div>
+                <button type="submit">submit</button>
+            </form>
+        </section>
 
-    <br><br>
-    <hr>
-    <br>
-
-    <!-- exp 2: -->
-    <h4>
-        Freedom
-    </h4>
-    <img src="https://github.com/AmirhosseinOlyaei/mobile-view-fb-tailwind/raw/main/asset/Screenshot%202023-02-06%20at%201.34.08%20AM.png"
-         width="50%" alt="Freedom image" loading="lazy"/>
-
-    <ul>
-        <li>
-            Simulated the Facebook mobile Favorites using TailwindCSS which received positive feedback from users
-            and
-            led to a 10% increase in website traffic.
-        </li>
-        <li>
-            Improved my resilience and taught me the importance of finding solutions to overcome obstacles.
-            Increased my
-            productivity by 15%.
-        </li>
-    </ul>
-
-    <br>
-    <a href="https://mobile-view-fb-tailwind.vercel.app" target="_blank">Deployment</a>
-    <br><br>
-    <hr>
-    <br>
-
-    <!-- exp 3: -->
-    <h4>
-        CreativePainter.io
-    </h4>
-    <img src="https://camo.githubusercontent.com/e45f479471c7a8f5a8af6e589ccf9e9ae5f6b3aa2c5c72cc700c9507708f6c6a/68747470733a2f2f692e696d6775722e636f6d2f3944554b3477312e706e67"
-         width="100%" alt="Painter image" loading="lazy"/>
-
-    <ul>
-        <li>
-            The Artificial Intelligence (AI) Creative Painter project generates images based on civil rights history
-            showcasing African American leaders in America.
-        </li>
-        <li>
-            Our team was led by assigning roles, setting goals, and facilitating communication. Resulted in on-time
-            project completion, exceeded client expectations, and a 20% increase in website traffic.
-        </li>
-    </ul>
-
-
-    <a href="https://github.com/AmirhosseinOlyaei/creative-painter-io" target="_blank">Deployment</a>
-    <br><br>
-    <hr>
-    <br>
-
-    <!-- exp 4: -->
-    <h4>
-        Marketing AI App
-    </h4>
-    <img src="https://camo.githubusercontent.com/5dc830c6ef4577abe28718ff68d63916a5ad9bae92d0117403fc5d255af7c6ba/68747470733a2f2f692e696d6775722e636f6d2f4d4a67744630512e6a7067"
-         width="100%" alt="Marketing AI image" loading="lazy"/>
-    <img src="https://camo.githubusercontent.com/d963116aff0a47f894a1ae71fb368c084d2a869e0927ace9d9d06f45e2047002/68747470733a2f2f692e696d6775722e636f6d2f593578453955332e6a7067"
-         width="100%" alt="All projects image" loading="lazy"/>
-
-    <ul>
-        <li>
-            Developed Marketing AI web application life cycle in both the front and back end geared towards
-            streamlining tasks, and providing a robust experience at scale while fostering cultural exchanges, and
-            solving real-world problems.
-        </li>
-        <li>
-            Collaborated on Agile-Scrum project management tool, to organize and prioritize tasks and the status of
-            ongoing issues, honed teamwork and communication skills.
-        </li>
-        <li>
-            Contributed ideas and received positive constructive feedback in stand-up sessions to enhance the
-            overall
-            user experience.
-        </li>
-        <li>
-            Boosted satisfaction ratings by 25% and completed the project 1 week early. Gained valuable skills for
-            future team-oriented work.
-        </li>
-        <li>
-            Stack: Figma, Zenhub, HTML & CSS, TailwindCSS, DaisyUI, JavaScript, React.js, API, GitHub, Supabase,
-            PostgeSQL, Vercel, Webstorm, Markdown
-        </li>
-
-    </ul>
-
-    <a href="https://hackmd.io/@amiro/marketing-ai" target="_blank">Presentation link</a>
-    <br>
-    <a href="https://github.com/AmirhosseinOlyaei/marketing-ai-app" target="_blank">Deployment</a>
-
-    <br><br>
-    <hr>
-
-</section>
-
-<!--skills-->
-<section id="skills">
-    <h2>Skills</h2>
-    <ul></ul>
-    <br>
-    <hr>
-</section>
-
-<!-- Contact section -->
-<section>
-    <h1>Connect:</h1>
-    <a href="https://github.com/AmirhosseinOlyaei">https://github.com/AmirhosseinOlyaei</a>
-    <br><br>
-    <hr>
-</section>
-
-<!-- message-->
-<section>
-    <h2>Leave a Message</h2>
-    <form name="leave_message">
-        <div>
-            <label>Name<br>
-                <input type="text" name="usersName" required>
-            </label>
-        </div>
-        <div>
-            <label>Email Address<br>
-                <input type="email" name="usersEmail" required>
-            </label>
-        </div>
-        <div>
-            <label>Message<br>
-                <textarea name="usersMessage" required></textarea>
-            </label>
-        </div>
-        <button type="submit">submit</button>
-    </form>
-</section>
-
-<!--messages-->
-<section id="usersMessage">
-    <h2>Messages</h2>
-    <ul></ul>
-</section>
+        <!--messages-->
+        <section id="usersMessage">
+            <h2>Messages</h2>
+            <ul></ul>
+        </section>
+    </div>
+</main>
 
 <!-- footer-->
-<footer></footer>
+<footer class="container"><div class="nav"></div></footer>
+
 <script src="js/index.js"></script>
 </body>
 
