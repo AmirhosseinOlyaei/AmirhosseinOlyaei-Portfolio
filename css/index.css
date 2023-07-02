@@ -1,44 +1,27 @@
 :root {
-    --color-darkest: #000;
-    --color-darker: #2b2b4a;
-    --color-dark: #55556e;
-    --color-medium: #808092;
-    --color-light: #d5d5db;
-    --color-lighter: #f7f5f9;
-    --color-lightest: #fff;
+    --colorDarkest: #000;
+    --colorDarker: #2b2b4a;
+    --colorDark: #55556e;
+    --colorMedium: #808092;
+    --colorLight: #d5d5db;
+    --colorLighter: #f7f5f9;
+    --colorLightest: #fff;
 
-    --color-primary: #BF92B7;
+    --colorPrimary: #BF92B7;
     /*#0072e0*/
-    --color-danger: #dc2626;
+    --colorDanger: #dc2626;
 
     --rounded: 3px;
-    --rounded-full: 999px;
+    --roundedFull: 999px;
 }
 
 body {
-    /* Change the background color of the page body */
-    background-color: var(--color-lightest);
-    /* Change the default text color */
-    color: var(--color-darker);
+    background-color: var(--colorLightest);
+    color: var(--colorDarker);
     display: flex;
     flex-direction: column;
-    /* Define the font family for the entire page or just a section */
     font-family: 'Inter', sans-serif;
     font-size: 16px;
-}
-
-/* Add spacing (padding/margin) between sections */
-section {
-    margin-bottom: 10px;
-    padding: 1.5rem 0;
-}
-
-/*Change the font size, weight, and color of all headings*/
-h1, h2, h4 {
-    font-size: 24px;
-    font-weight: 600;
-    /*color: #555;*/
-    margin-bottom: 0.5rem;
 }
 
 .container {
@@ -46,6 +29,14 @@ h1, h2, h4 {
     margin: 0 auto;
     max-width: 1024px;
     width: 90vw;
+}
+
+h1,
+h2,
+h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
 p:not(:last-of-type) {
@@ -56,6 +47,7 @@ p:not(:last-of-type) {
     align-items: center;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .menu {
@@ -63,75 +55,72 @@ p:not(:last-of-type) {
     align-items: center;
 }
 
-.menu--hide-mobile {
+.menuHideMobile {
     display: none;
 }
 
-.menu__item {
+.menuItem {
     font-size: 1.125rem;
 }
 
-.menu__item--large {
+.menuItemLarge {
     font-size: 1.25rem;
 }
 
-.menu__item:not(:last-child) {
+.menuItem:not(:last-child) {
     margin-right: 1rem;
 }
 
 .link {
-    color: var(--color-primary);
+    color: var(--colorPrimary);
     display: inline-block;
     text-decoration: none;
 }
 
-.link--no-color {
+.linkNoColor {
     color: inherit;
 }
 
-.link:not(.link--no-decor):hover::after,
-.link:not(.link--no-decor):focus::after {
-    border-bottom: 2px solid var(--color-primary);
+.link:not(.linkNoDecor):hover::after,
+.link:not(.linkNoDecor):focus::after {
+    border-bottom: 2px solid var(--colorPrimary);
     content: '';
     display: block;
 }
 
-.link--no-color:hover::after,
-.link--no-color:focus::after {
-    border-color: var(--color-darker);
+.linkNoColor:hover::after,
+.linkNoColor:focus::after {
+    border-color: var(--colorDarker);
 }
 
 .image {
     display: inline-block;
 }
 
-.image--small {
+.imageSmall {
     width: 50px;
 }
 
-.image--rounded {
-    border-radius: var(--rounded-full);
+.imageRounded {
+    border-radius: var(--roundedFull);
 }
 
 main {
     flex-grow: 1;
 }
 
-/* Transform the "Experience" list items into styled blocks */
-section ul li {
-    background-color: #f9f9f9;
-    padding: 10px;
-    /*margin-bottom: 10px;*/
+section {
+    margin-bottom: 10px;
+    padding: 1.5rem 0;
 }
 
-/* Transform the "Skills" list items into styled blocks */
-#skills ul li {
+section ul li,
+#skills ul li,
+#usersMessage ul li {
     background-color: #f9f9f9;
     padding: 10px;
-    /*margin-bottom: 10px;*/
 }
 
-/* Style the "Leave a Message" form elements */
 form[name="leave_message"] label {
     font-size: 14px;
     color: #555;
@@ -153,7 +142,6 @@ form[name="leave_message"] button[type="submit"] {
     cursor: pointer;
 }
 
-/* Transform the "Messages" list items into styled blocks and customize the remove button */
 #usersMessage ul li {
     background-color: #f9f9f9;
     padding: 10px;
@@ -162,23 +150,38 @@ form[name="leave_message"] button[type="submit"] {
 
 #usersMessage ul li button {
     padding: 5px 10px;
-    background-color: #f44336;
+    background-color: #4f79ef;
     color: #fff;
     border: none;
     cursor: pointer;
 }
 
-/* Change the spacing and background color of the footer */
 footer {
-    /*padding: 20px;*/
-    /*background-color: #555;*/
-    /*color: #fff;*/
-    background-color: var(--color-lighter);
+    background-color: var(--colorLighter);
     font-size: 1.125rem;
 }
 
 @media screen and (min-width: 768px) {
-    .menu--hide-mobile {
+    .menuHideMobile {
         display: flex;
     }
+    .projectImage {
+        width: 50%;
+    }
+}
+
+/* For smaller screens */
+@media screen and (max-width: 767px) {
+    .projectImage {
+        width: 100%;
+    }
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.imageContainer img {
+    max-width: 100%;
 }

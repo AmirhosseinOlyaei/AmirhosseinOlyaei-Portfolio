@@ -91,8 +91,8 @@ messageForm.addEventListener('submit', function (event) {
     newMessage.innerHTML = `
     <a href="mailto:${usersEmail}">${usersName}</a>
     <span>wrote: ${usersMessage}</span>
-    <button class="edit-button">edit</button>
     <button class="remove-button">remove</button>
+    <button class="edit-button">edit</button>
   `;
 
 // Append the messageContent to the newMessage element
