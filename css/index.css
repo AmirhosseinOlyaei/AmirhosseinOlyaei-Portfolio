@@ -43,11 +43,35 @@ p:not(:last-of-type) {
     margin-bottom: 1rem;
 }
 
-.nav {
+.skill {
     align-items: center;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.navBar {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #3333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: top 0.8s;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+#home, #about {
+    margin-top:30px;
+}
+/*padding:15px 15px 2500px;font-size:30px;margin-top:30px;*/
+
+
+.navBar.hide {
+    top: -100px;
 }
 
 .menu {

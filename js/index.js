@@ -163,3 +163,30 @@ messageForm.addEventListener('submit', function (event) {
     });
 
 });
+
+// Get the navbar element
+const navbar = document.querySelector('.navBar');
+
+// Variable to store the previous scroll position
+let prevScrollPos = window.pageYOffset;
+
+// Function to handle the scroll event
+const handleScroll = () => {
+    // Get the current scroll position
+    const currentScrollPos = window.pageYOffset;
+
+    // Check the scrolling direction
+    if (prevScrollPos > currentScrollPos) {
+        // Scrolling up, show the navbar
+        navbar.classList.remove('hide');
+    } else {
+        // Scrolling down, hide the navbar
+        navbar.classList.add('hide');
+    }
+
+    // Update the previous scroll position
+    prevScrollPos = currentScrollPos;
+};
+
+// Attach the scroll event listener
+window.addEventListener('scroll', handleScroll);
