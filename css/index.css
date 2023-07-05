@@ -145,20 +145,56 @@ section ul li,
     padding: 10px;
 }
 
-form[name="leave_message"] label {
-    font-size: 14px;
-    color: #555;
+/*form[name="leave_message"] label {*/
+/*    font-size: 14px;*/
+/*    color: #555;*/
+/*}*/
+
+/*form[name="leave_message"] input,*/
+/*form[name="leave_message"] textarea {*/
+/*    font-size: 16px;*/
+/*    padding: 5px;*/
+/*    border: 1px solid #ccc;*/
+/*    margin-bottom: 10px;*/
+/*}*/
+
+/*form[name="leave_message"] button[type="submit"] {*/
+/*    padding: 10px 20px;*/
+/*    background-color: #555;*/
+/*    color: #fff;*/
+/*    border: none;*/
+/*    cursor: pointer;*/
+/*}*/
+
+.message-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0;
 }
 
-form[name="leave_message"] input,
-form[name="leave_message"] textarea {
-    font-size: 16px;
-    padding: 5px;
-    border: 1px solid #ccc;
+.form-group {
+    display: flex;
+    flex-direction: row;
     margin-bottom: 10px;
 }
 
-form[name="leave_message"] button[type="submit"] {
+.form-group label {
+    flex: 1;
+    font-size: 14px;
+    color: #555;
+    padding-right: 10px;
+}
+
+.form-group input,
+.form-group textarea {
+    flex: 2;
+    font-size: 16px;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.message-form button[type="submit"] {
     padding: 10px 20px;
     background-color: #555;
     color: #fff;
@@ -166,13 +202,14 @@ form[name="leave_message"] button[type="submit"] {
     cursor: pointer;
 }
 
-#usersMessage ul li {
+
+.usersMessage ul li {
     background-color: #f9f9f9;
     padding: 10px;
     margin-bottom: 10px;
 }
 
-#usersMessage ul li button {
+.usersMessage ul li button {
     padding: 5px 10px;
     background-color: #4f79ef;
     color: #fff;

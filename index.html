@@ -262,27 +262,47 @@
         </section>
 
         <!-- message-->
+<!--        <section id="contact">-->
+<!--            <h2>Leave a Message</h2>-->
+<!--            <form name="leave_message">-->
+<!--                <div>-->
+<!--                    <label>Name<br>-->
+<!--                        <input type="text" name="usersName" required>-->
+<!--                    </label>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <label>Email Address<br>-->
+<!--                        <input type="email" name="usersEmail" required>-->
+<!--                    </label>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <label>Message<br>-->
+<!--                        <textarea name="usersMessage" required></textarea>-->
+<!--                    </label>-->
+<!--                </div>-->
+<!--                <button type="submit">submit</button>-->
+<!--            </form>-->
+<!--        </section>-->
+
         <section id="contact">
             <h2>Leave a Message</h2>
-            <form name="leave_message">
-                <div>
-                    <label>Name<br>
-                        <input type="text" name="usersName" required>
-                    </label>
+            <form name="leave_message" class="message-form">
+                <div class="form-group">
+                    <label for="usersName">Name</label>
+                    <input type="text" name="usersName" id="usersName" required>
                 </div>
-                <div>
-                    <label>Email Address<br>
-                        <input type="email" name="usersEmail" required>
-                    </label>
+                <div class="form-group">
+                    <label for="usersEmail">Email Address</label>
+                    <input type="email" name="usersEmail" id="usersEmail" required>
                 </div>
-                <div>
-                    <label>Message<br>
-                        <textarea name="usersMessage" required></textarea>
-                    </label>
+                <div class="form-group">
+                    <label for="usersMessage">Message</label>
+                    <textarea name="usersMessage" required></textarea>
                 </div>
-                <button type="submit">submit</button>
+                <button type="submit">Submit</button>
             </form>
         </section>
+
 
         <!--messages-->
         <section id="usersMessage">
