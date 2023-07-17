@@ -195,6 +195,15 @@ githubRequest.addEventListener("load", (event)=>{
     console.log(event.currentTarget.response);
     const repositories = JSON.parse(event.currentTarget.response);
     console.log(repositories);
+    const repoSection = document.getElementById("repos");
+    const repoList = repoSection.querySelector("ul");
+    for (let i = 0; i < repositories.length; i++){
+        console.log(repositories[i]);
+        const repository = document.createElement("li");
+        repository.innerText = repositories[i].name;
+        repoList.appendChild(repository);
+
+    }
 })
 githubRequest.open("GET", "https://api.github.com/users/amirhosseinolyaei/repos")
 githubRequest.send();
