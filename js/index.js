@@ -191,5 +191,11 @@ const handleScroll = () => {
 // Attach the scroll event listener
 window.addEventListener('scroll', handleScroll);
 const githubRequest = new XMLHttpRequest();
+githubRequest.addEventListener("load", (event)=>{
+    console.log(event.currentTarget.response);
+    const repositories = JSON.parse(event.currentTarget.response);
+    console.log(repositories);
+})
 githubRequest.open("GET", "https://api.github.com/users/amirhosseinolyaei/repos")
 githubRequest.send();
+
