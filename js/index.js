@@ -190,3 +190,33 @@ const handleScroll = () => {
 
 // Attach the scroll event listener
 window.addEventListener('scroll', handleScroll);
+
+// AJAX
+const githubRequest = new XMLHttpRequest();
+githubRequest.addEventListener("load", (event)=>{
+    // console.log(event.currentTarget.response);
+    const repositories = JSON.parse(event.currentTarget.response);
+    console.log(repositories);
+    const repoSection = document.getElementById("repos");
+    const repoList = repoSection.querySelector("ul");
+    for (let i = 0; i < repositories.length; i++){
+        // console.log(repositories[i]);
+        const repository = document.createElement("li");
+        // repository.innerText = repositories[i].name;
+        let repositoryContent = `
+            <p><a href='${repositories[i].html_url}' target="_blank">${repositories[i].name}</a></p>
+            ${repositories[i].description ? `<p>${repositories[i].description}</p>` : ""}
+            <p>Created at: ${new Date(repositories[i].created_at).toLocaleDateString()}</p>
+        `;
+
+        if (repositories[i].homepage) {
+            repositoryContent += `<p>Deployment Link: <a href='${repositories[i].homepage}' target="_blank">${repositories[i].homepage}</a></p>`;
+        }
+
+        repository.innerHTML = repositoryContent + "<br>";
+        repoList.appendChild(repository);
+    }
+});
+githubRequest.open("GET", "https://api.github.com/users/amirhosseinolyaei/repos")
+githubRequest.send();
+
