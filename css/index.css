@@ -1,3 +1,4 @@
+/* Variables */
 :root {
     --colorDarkest: #000;
     --colorDarker: #2b2b4a;
@@ -8,13 +9,13 @@
     --colorLightest: #fff;
 
     --colorPrimary: #BF92B7;
-    /*#0072e0*/
     --colorDanger: #dc2626;
 
     --rounded: 3px;
     --roundedFull: 999px;
 }
 
+/* Base Styles */
 body {
     background-color: var(--colorLightest);
     color: var(--colorDarker);
@@ -27,13 +28,13 @@ body {
 .container {
     padding: 1rem 0;
     margin: 0 auto;
+    margin-top: 10px;
     max-width: 1024px;
     width: 90vw;
 }
 
-h1,
-h2,
-h3 {
+/* Typography */
+h1, h2, h3 {
     font-size: 24px;
     font-weight: 600;
     margin-bottom: 0.5rem;
@@ -43,16 +44,10 @@ p:not(:last-of-type) {
     margin-bottom: 1rem;
 }
 
-.skill {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
+/* Header */
 .navBar {
-    align-items: center;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     background-color: #3333;
@@ -63,12 +58,6 @@ p:not(:last-of-type) {
     padding-left: 4rem;
     padding-right: 4rem;
 }
-
-#home, #about {
-    margin-top:30px;
-}
-/*padding:15px 15px 2500px;font-size:30px;margin-top:30px;*/
-
 
 .navBar.hide {
     top: -100px;
@@ -85,16 +74,14 @@ p:not(:last-of-type) {
 
 .menuItem {
     font-size: 1.125rem;
+    margin-right: 1rem;
 }
 
 .menuItemLarge {
     font-size: 1.25rem;
 }
 
-.menuItem:not(:last-child) {
-    margin-right: 1rem;
-}
-
+/* Links */
 .link {
     color: var(--colorPrimary);
     display: inline-block;
@@ -117,6 +104,7 @@ p:not(:last-of-type) {
     border-color: var(--colorDarker);
 }
 
+/* Images */
 .image {
     display: inline-block;
 }
@@ -129,6 +117,7 @@ p:not(:last-of-type) {
     border-radius: var(--roundedFull);
 }
 
+/* Main Content */
 main {
     flex-grow: 1;
 }
@@ -145,27 +134,23 @@ section ul li,
     padding: 10px;
 }
 
-/*form[name="leave_message"] label {*/
-/*    font-size: 14px;*/
-/*    color: #555;*/
-/*}*/
+.skill {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
 
-/*form[name="leave_message"] input,*/
-/*form[name="leave_message"] textarea {*/
-/*    font-size: 16px;*/
-/*    padding: 5px;*/
-/*    border: 1px solid #ccc;*/
-/*    margin-bottom: 10px;*/
-/*}*/
+/* On-hover effect for skills icons */
+.skill-icon {
+    transition: transform 0.3s ease;
+}
 
-/*form[name="leave_message"] button[type="submit"] {*/
-/*    padding: 10px 20px;*/
-/*    background-color: #555;*/
-/*    color: #fff;*/
-/*    border: none;*/
-/*    cursor: pointer;*/
-/*}*/
+.skill-icon:hover {
+    transform: scale(1.2);
+}
 
+/* Form Styles */
 .message-form {
     display: flex;
     flex-direction: column;
@@ -202,7 +187,7 @@ section ul li,
     cursor: pointer;
 }
 
-
+/* Users Messages */
 .usersMessage ul li {
     background-color: #f9f9f9;
     padding: 10px;
@@ -217,11 +202,13 @@ section ul li,
     cursor: pointer;
 }
 
+/* Footer */
 footer {
     background-color: var(--colorLighter);
     font-size: 1.125rem;
 }
 
+/* Media Queries */
 @media screen and (min-width: 768px) {
     .menuHideMobile {
         display: flex;
@@ -231,27 +218,8 @@ footer {
     }
 }
 
-/* For smaller screens */
 @media screen and (max-width: 767px) {
     .projectImage {
         width: 100%;
     }
-}
-
-.imageContainer {
-    display: flex;
-    justify-content: center;
-}
-
-.imageContainer img {
-    max-width: 100%;
-}
-
-/* On-hover effect for skills icons */
-.skill-icon {
-    transition: transform 0.3s ease;
-}
-
-.skill-icon:hover {
-    transform: scale(1.2);
 }
