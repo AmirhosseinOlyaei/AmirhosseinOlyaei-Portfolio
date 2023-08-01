@@ -205,7 +205,7 @@ section ul li,
 /* Footer */
 footer {
     background-color: var(--colorLighter);
-    font-size: 1.125rem;
+    /*font-size: 1.125rem;*/
     padding: 1rem 4rem;
     font-size: small;
 }
