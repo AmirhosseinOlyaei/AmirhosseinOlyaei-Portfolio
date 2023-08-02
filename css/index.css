@@ -27,8 +27,7 @@ body {
 
 .container {
     padding: 1rem 0;
-    margin: 0 auto;
-    margin-top: 10px;
+    margin: 10px auto 0;
     max-width: 1024px;
     width: 90vw;
 }
@@ -128,7 +127,9 @@ p:not(:last-of-type) {
  }
 
 .dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
+    /*background-color: #2980B9;*/
+    background-color: var(--colorLighter);
+
 }
 
 .dropdown {
