@@ -72,6 +72,7 @@ p:not(:last-of-type) {
 }
 
 .menuItem {
+    display: flex;
     font-size: 1.125rem;
     margin-right: 1rem;
 }
@@ -129,11 +130,6 @@ p:not(:last-of-type) {
 .dropbtn:hover, .dropbtn:focus {
     background-color: var(--colorLighter);
 
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
 }
 
 .dropdown-content {
