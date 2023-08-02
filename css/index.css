@@ -118,8 +118,8 @@ p:not(:last-of-type) {
 
 /*Drop down menu*/
  .dropbtn {
-     background-color: #3498DB;
-     color: white;
+     background-color: #3333;
+     color: #55556e;
      padding: 16px;
      font-size: 16px;
      border: none;
@@ -127,7 +127,6 @@ p:not(:last-of-type) {
  }
 
 .dropbtn:hover, .dropbtn:focus {
-    /*background-color: #2980B9;*/
     background-color: var(--colorLighter);
 
 }
