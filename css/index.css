@@ -157,6 +157,10 @@ p:not(:last-of-type) {
 
 .show {display: block;}
 
+.dropdown {
+    display: none;
+}
+
 
 /* Main Content */
 main {
@@ -262,6 +266,9 @@ footer {
 }
 
 @media screen and (max-width: 767px) {
+    .dropdown {
+        display: block;
+    }
     .projectImage {
         width: 100%;
     }
