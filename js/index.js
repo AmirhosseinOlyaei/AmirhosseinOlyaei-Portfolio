@@ -23,10 +23,10 @@ footer.appendChild(copyright);
 const skills = [
     'Prototyping: Figma',
     'Project management: Agile-Scrum in ZenHub',
-    'Web Development: HTML, CSS, TailwindCSS, DaisyUI, JavaScript, React.js, API',
+    'Web Development: HTML, CSS, TailwindCSS, DaisyUI, JavaScript, React.js, Java, API',
     'Version control: Git, GitHub',
     'IDEs: WebStorm, VSCode, CodeSandbox, JSitor, Replit',
-    'Database: Navicat, Supabase, PostgreSQL',
+    'Database: Navicat, Supabase, SQL',
     'Knowledge base / Note taking: Markdown in Logseq, .md, and presentations',
     'Production / Deployment: Vercel',
     'Introduction to Node.js, Docker, and AWS',
