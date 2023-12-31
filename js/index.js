@@ -236,37 +236,104 @@ window.onclick = function (event) {
 
 // API
 
-fetch("https://api.github.com/users/amirhosseinolyaei/repos", {
-  method: "GET",
-})
-  .then((response) => response.json())
+// fetch("https://api.github.com/users/amirhosseinolyaei/repos", {
+//   method: "GET",
+// })
+//   .then((response) => response.json())
+//   .then((repositories) => {
+//     const repoSection = document.getElementById("repos");
+//     const repoList = repoSection.querySelector("ul");
+
+//     repositories.forEach((repo) => {
+//       fetch(repo.languages_url)
+//         .then((response) => response.json())
+//         .then((languages) => {
+//           const repository = document.createElement("li");
+//           const languagesContent =
+//             Object.keys(languages).length > 0
+//               ? `<p>Languages and Tools:</p><ul class='languages'>${Object.keys(
+//                   languages
+//                 )
+//                   .map(
+//                     (language) =>
+//                       `<li><i class="${getIconClass(
+//                         language
+//                       )}"></i> ${language}</li>`
+//                   )
+//                   .join("")}</ul>`
+//               : "";
+
+//           repository.innerHTML = `
+//                     <p><a href='${repo.html_url}' target="_blank">${
+//             repo.name
+//           }</a></p>
+//                     ${repo.description ? `<p>${repo.description}</p>` : ""}
+//                     <p>Created at: ${new Date(
+//                       repo.created_at
+//                     ).toLocaleDateString()}</p>
+//                     ${languagesContent}
+//                     ${
+//                       repo.homepage
+//                         ? `<p>Deployment Link: <a href='${repo.homepage}' target="_blank">${repo.homepage}</a></p>`
+//                         : ""
+//                     }
+//                     <br>`;
+//           repoList.appendChild(repository);
+//         });
+//     });
+//   })
+//   .catch((error) => console.error("Error fetching data:", error));
+
+// latest
+function fetchRepositories() {
+  const cachedRepos = sessionStorage.getItem("repositories");
+  if (cachedRepos) {
+    return Promise.resolve(JSON.parse(cachedRepos));
+  } else {
+    return fetch("https://api.github.com/users/amirhosseinolyaei/repos")
+      .then((response) => response.json())
+      .then((data) => {
+        sessionStorage.setItem("repositories", JSON.stringify(data));
+        return data;
+      });
+  }
+}
+
+fetchRepositories()
   .then((repositories) => {
-    const repoSection = document.getElementById("repos");
-    const repoList = repoSection.querySelector("ul");
+    repositoriesData = repositories;
+    populateFilterOptions(repositoriesData);
+    displayRepositories(repositoriesData);
+  })
+  .catch((error) => console.error("Error fetching data:", error));
 
-    repositories.forEach((repo) => {
-      fetch(repo.languages_url)
-        .then((response) => response.json())
-        .then((languages) => {
-          const repository = document.createElement("li");
-          const languagesContent =
-            Object.keys(languages).length > 0
-              ? `<p>Languages and Tools:</p><ul class='languages'>${Object.keys(
-                  languages
+function displayRepositories(repositories) {
+  const repoList = document.getElementById("repos").querySelector("ul");
+  repoList.innerHTML = ""; // Clear existing list
+
+  repositories.forEach((repo) => {
+    fetch(repo.languages_url)
+      .then((response) => response.json())
+      .then((languages) => {
+        const repository = document.createElement("li");
+        const languagesContent =
+          Object.keys(languages).length > 0
+            ? `<p>Languages and Tools:</p><ul class='languages'>${Object.keys(
+                languages
+              )
+                .map(
+                  (language) =>
+                    `<li><i class="${getIconClass(
+                      language
+                    )}"></i> ${language}</li>`
                 )
-                  .map(
-                    (language) =>
-                      `<li><i class="${getIconClass(
-                        language
-                      )}"></i> ${language}</li>`
-                  )
-                  .join("")}</ul>`
-              : "";
+                .join("")}</ul>`
+            : "";
 
-          repository.innerHTML = `
+        repository.innerHTML = `
                     <p><a href='${repo.html_url}' target="_blank">${
-            repo.name
-          }</a></p>
+          repo.name
+        }</a></p>
                     ${repo.description ? `<p>${repo.description}</p>` : ""}
                     <p>Created at: ${new Date(
                       repo.created_at
@@ -278,11 +345,92 @@ fetch("https://api.github.com/users/amirhosseinolyaei/repos", {
                         : ""
                     }
                     <br>`;
-          repoList.appendChild(repository);
-        });
+        repoList.appendChild(repository);
+      });
+  });
+}
+
+function sortByMostRecent() {
+  displayRepositories(
+    repositoriesData.sort(
+      (a, b) => new Date(b.created_at) - new Date(a.created_at)
+    )
+  );
+}
+
+function sortByOldest() {
+  displayRepositories(
+    repositoriesData.sort(
+      (a, b) => new Date(a.created_at) - new Date(b.created_at)
+    )
+  );
+}
+
+function sortAlphabetically() {
+  displayRepositories(
+    repositoriesData.sort((a, b) => a.name.localeCompare(b.name))
+  );
+}
+
+function fetchTechnologies() {
+  return new Promise((resolve, reject) => {
+    if (!repositoriesData || repositoriesData.length === 0) {
+      reject("No repository data available");
+      return;
+    }
+
+    const techSet = new Set();
+    repositoriesData.forEach((repo) => {
+      // Assuming each repo has a 'topics' array. Replace 'topics' with the actual field name.
+      const technologies = repo.topics || [];
+      technologies.forEach((tech) => techSet.add(tech));
     });
-  })
-  .catch((error) => console.error("Error fetching data:", error));
+
+    resolve(Array.from(techSet));
+  });
+}
+
+function populateFilterOptions() {
+  fetchTechnologies()
+    .then((technologies) => {
+      const techFilter = document.getElementById("tech-filter");
+      console.log("Technologies to populate:", technologies); // Debugging line
+
+      technologies.forEach((tech) => {
+        const option = document.createElement("option");
+        option.value = tech;
+        option.textContent = tech;
+        techFilter.appendChild(option);
+      });
+    })
+    .catch((error) => {
+      console.error("Error fetching technologies:", error);
+    });
+}
+
+function filterByTechnology() {
+  const selectedTech = document.getElementById("tech-filter").value;
+  const filteredRepos =
+    selectedTech === "all"
+      ? repositoriesData
+      : repositoriesData.filter(
+          (repo) => repo.topics && repo.topics.includes(selectedTech)
+        );
+
+  displayRepositories(filteredRepos);
+}
+
+// Event Listeners
+document
+  .getElementById("sort-recent")
+  .addEventListener("click", sortByMostRecent);
+document.getElementById("sort-oldest").addEventListener("click", sortByOldest);
+document
+  .getElementById("sort-alpha")
+  .addEventListener("click", sortAlphabetically);
+document
+  .getElementById("tech-filter")
+  .addEventListener("change", filterByTechnology);
 
 function getIconClass(language) {
   const exceptions = {
@@ -300,3 +448,4 @@ function getIconClass(language) {
   const iconName = language.toLowerCase().replace(/\s+/g, "-");
   return `fab fa-${iconName}`;
 }
+let repositoriesData = [];
