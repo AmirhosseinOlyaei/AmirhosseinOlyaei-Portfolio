@@ -235,56 +235,6 @@ window.onclick = function (event) {
 // githubRequest.send();
 
 // API
-
-// fetch("https://api.github.com/users/amirhosseinolyaei/repos", {
-//   method: "GET",
-// })
-//   .then((response) => response.json())
-//   .then((repositories) => {
-//     const repoSection = document.getElementById("repos");
-//     const repoList = repoSection.querySelector("ul");
-
-//     repositories.forEach((repo) => {
-//       fetch(repo.languages_url)
-//         .then((response) => response.json())
-//         .then((languages) => {
-//           const repository = document.createElement("li");
-//           const languagesContent =
-//             Object.keys(languages).length > 0
-//               ? `<p>Languages and Tools:</p><ul class='languages'>${Object.keys(
-//                   languages
-//                 )
-//                   .map(
-//                     (language) =>
-//                       `<li><i class="${getIconClass(
-//                         language
-//                       )}"></i> ${language}</li>`
-//                   )
-//                   .join("")}</ul>`
-//               : "";
-
-//           repository.innerHTML = `
-//                     <p><a href='${repo.html_url}' target="_blank">${
-//             repo.name
-//           }</a></p>
-//                     ${repo.description ? `<p>${repo.description}</p>` : ""}
-//                     <p>Created at: ${new Date(
-//                       repo.created_at
-//                     ).toLocaleDateString()}</p>
-//                     ${languagesContent}
-//                     ${
-//                       repo.homepage
-//                         ? `<p>Deployment Link: <a href='${repo.homepage}' target="_blank">${repo.homepage}</a></p>`
-//                         : ""
-//                     }
-//                     <br>`;
-//           repoList.appendChild(repository);
-//         });
-//     });
-//   })
-//   .catch((error) => console.error("Error fetching data:", error));
-
-// latest
 function fetchRepositories() {
   const cachedRepos = sessionStorage.getItem("repositories");
   if (cachedRepos) {
@@ -415,9 +365,16 @@ function filterByTechnology() {
   const filteredRepos =
     selectedTech === "all"
       ? repositoriesData
-      : repositoriesData.filter(
+      : repositoriesData.filter((repo) =>
           //   (repo) => repo.language && repo.language.includes(selectedTech)
-          (repo) => repo.language === selectedTech
+          // (repo) => repo.language === selectedTech
+          {
+            // Handle null, undefined, or case sensitivity
+            return (
+              repo.language &&
+              repo.language.toLowerCase() === selectedTech.toLowerCase()
+            );
+          }
         );
 
   displayRepositories(filteredRepos);
