@@ -381,8 +381,7 @@ function fetchTechnologies() {
 
     const techSet = new Set();
     repositoriesData.forEach((repo) => {
-      // Assuming each repo has a 'topics' array. Replace 'topics' with the actual field name.
-      const technologies = repo.topics || [];
+      const technologies = repo.language || [];
       technologies.forEach((tech) => techSet.add(tech));
     });
 
@@ -390,22 +389,25 @@ function fetchTechnologies() {
   });
 }
 
-function populateFilterOptions() {
-  fetchTechnologies()
-    .then((technologies) => {
-      const techFilter = document.getElementById("tech-filter");
-      console.log("Technologies to populate:", technologies); // Debugging line
+function populateFilterOptions(repositories) {
+  const techSet = new Set();
+  repositories.forEach((repo) => {
+    // Assuming each repo has a 'language' field
+    if (repo.language) {
+      techSet.add(repo.language);
+    }
+  });
 
-      technologies.forEach((tech) => {
-        const option = document.createElement("option");
-        option.value = tech;
-        option.textContent = tech;
-        techFilter.appendChild(option);
-      });
-    })
-    .catch((error) => {
-      console.error("Error fetching technologies:", error);
-    });
+  const techFilter = document.getElementById("tech-filter");
+  techSet.forEach((tech) => {
+    if (tech) {
+      // Ensure that the tech is not null or undefined
+      const option = document.createElement("option");
+      option.value = tech;
+      option.textContent = tech;
+      techFilter.appendChild(option);
+    }
+  });
 }
 
 function filterByTechnology() {
@@ -414,7 +416,8 @@ function filterByTechnology() {
     selectedTech === "all"
       ? repositoriesData
       : repositoriesData.filter(
-          (repo) => repo.topics && repo.topics.includes(selectedTech)
+          //   (repo) => repo.language && repo.language.includes(selectedTech)
+          (repo) => repo.language === selectedTech
         );
 
   displayRepositories(filteredRepos);
