@@ -1,3 +1,97 @@
+To refactor your code for a safe API call using an environment variable on Vercel, you'll need to create a serverless function that handles the GitHub API requests. This function will use the environment variable to authenticate requests to the GitHub API.
+
+### Step 1: Set Up Environment Variable on Vercel
+
+1. **Create a Personal Access Token on GitHub** as described in the previous message.
+2. **Add the Token to Vercel's Environment Variables**:
+   - Go to your project settings on Vercel.
+   - Navigate to the Environment Variables section.
+   - Add a new variable (e.g., `GITHUB_TOKEN`) and paste your GitHub personal access token as the value.
+
+### Step 2: Create a Serverless Function on Vercel
+
+In your project, create a directory (e.g., `/api`) and add a new file for your serverless function (e.g., `/api/github.js`). This function will handle fetching repositories.
+
+```javascript
+// /api/github.js
+const fetch = require("node-fetch");
+
+module.exports = async (req, res) => {
+  const response = await fetch(
+    "https://api.github.com/users/amirhosseinolyaei/repos",
+    {
+      headers: {
+        Authorization: `token ${process.env.GITHUB_TOKEN}`,
+      },
+    }
+  );
+
+  const data = await response.json();
+  res.status(200).json(data);
+};
+```
+
+### Step 3: Refactor Your Frontend Code
+
+Update your frontend code to call this serverless function instead of directly calling the GitHub API.
+
+```javascript
+function fetchRepositories() {
+  const cachedRepos = sessionStorage.getItem("repositories");
+  if (cachedRepos) {
+    return Promise.resolve(JSON.parse(cachedRepos));
+  } else {
+    return fetch("/api/github") // Call your Vercel serverless function
+      .then((response) => response.json())
+      .then((data) => {
+        sessionStorage.setItem("repositories", JSON.stringify(data));
+        return data;
+      });
+  }
+}
+
+// ... rest of your code ...
+```
+
+### Step 4: Deploy Your Application to Vercel
+
+Deploy your application to Vercel. The serverless function will now use the environment variable to authenticate requests to the GitHub API, and your frontend will call this function to fetch data.
+
+### Security Note
+
+- By using a serverless function, your GitHub token is kept secure and not exposed in the client-side code.
+- Ensure that your `.env` file or any file containing sensitive tokens is included in your `.gitignore` to prevent it from being pushed to your repository.
+
+This approach allows you to securely authenticate GitHub API requests, leveraging Vercel's serverless functions and environment variables.
+
+---
+
+### Step 1: Install Vercel CLI
+
+`npm install -g vercel`
+
+### Step 2: Set Up Local Environment Variables
+
+```
+# .env file
+
+GITHUB_TOKEN=your_github_personal_access_token
+```
+
+> Important: Ensure that your .env file is included in your .gitignore to prevent accidentally pushing your secrets to a public repository.
+
+### Step 3: Log in to Vercel from CLI
+
+`vercel login`
+
+### Step 4: Run Your Project Locally
+
+`vercel dev`
+
+### Step 5: Test Your Application
+
+With vercel dev running, your application is accessible at http://localhost:3000 (or another port if 3000 is in use). You can now test your application as if it's running on Vercel, including making requests to your serverless function.
+
 # Sections 2-6: Personal Portfolio
 
 ## Overview
@@ -30,7 +124,7 @@ Grading for this project is less rigid, given the open-ended instructions ([View
 
 - [Lesson 5.1: How the Internet Works and Debugging](https://github.com/Code-the-Dream-School/intro-to-programming-section-5/blob/main/README.md)
 
-**NOTE:** Section 5 is a debugging exercise.  Clicking the above link takes you to a second Code the Dream School repository where a guessing game is already built... but it's not working as expected!  Use the debugging skills you've learned so far in class to find and fix the bugs.  Be sure you fork and clone the section 5 repository like you did in week 6.  BE SURE YOU ARE **NOT** INSIDE YOUR LOCAL FOLDER FOR YOUR PORTFOLIO WHEN YOU CLONE SECTION 5!
+**NOTE:** Section 5 is a debugging exercise. Clicking the above link takes you to a second Code the Dream School repository where a guessing game is already built... but it's not working as expected! Use the debugging skills you've learned so far in class to find and fix the bugs. Be sure you fork and clone the section 5 repository like you did in week 6. BE SURE YOU ARE **NOT** INSIDE YOUR LOCAL FOLDER FOR YOUR PORTFOLIO WHEN YOU CLONE SECTION 5!
 
 ### **Section 6:** AJAX Basics
 
