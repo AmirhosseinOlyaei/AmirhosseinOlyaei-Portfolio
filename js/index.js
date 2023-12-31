@@ -235,12 +235,30 @@ window.onclick = function (event) {
 // githubRequest.send();
 
 // API
+// directly calling the GitHub API.
+// This function will handle fetching repositories.
+//
+// function fetchRepositories() {
+//   const cachedRepos = sessionStorage.getItem("repositories");
+//   if (cachedRepos) {
+//     return Promise.resolve(JSON.parse(cachedRepos));
+//   } else {
+//     return fetch("https://api.github.com/users/amirhosseinolyaei/repos")
+//       .then((response) => response.json())
+//       .then((data) => {
+//         sessionStorage.setItem("repositories", JSON.stringify(data));
+//         return data;
+//       });
+//   }
+// }
+
+// call the serverless function instead of directly calling the GitHub API.
 function fetchRepositories() {
   const cachedRepos = sessionStorage.getItem("repositories");
   if (cachedRepos) {
     return Promise.resolve(JSON.parse(cachedRepos));
   } else {
-    return fetch("https://api.github.com/users/amirhosseinolyaei/repos")
+    return fetch("/api/github") // Call your Vercel serverless function
       .then((response) => response.json())
       .then((data) => {
         sessionStorage.setItem("repositories", JSON.stringify(data));
