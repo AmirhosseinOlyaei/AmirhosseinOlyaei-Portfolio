@@ -30,7 +30,7 @@
 // module.exports = async (req, res) => {
 
 // Using ECMAScript Modules
-import axios from 'axios';
+import axios from "axios";
 
 export default async (req, res) => {
   try {
