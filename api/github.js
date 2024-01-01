@@ -25,9 +25,14 @@
 //   }
 // };
 
-const axios = require("axios");
+// axios:
+// const axios = require("axios");
+// module.exports = async (req, res) => {
 
-module.exports = async (req, res) => {
+// Using ECMAScript Modules
+import axios from 'axios';
+
+export default async (req, res) => {
   try {
     const response = await axios.get(
       "https://api.github.com/users/amirhosseinolyaei/repos",
