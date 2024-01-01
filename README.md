@@ -41,10 +41,15 @@ If you haven't already installed axios in your project, you can do so with npm:
 
 ### Refactor the Function to Use Axios
 
-```javascript
-const axios = require("axios");
+> Switch from CommonJS to ECMAScript Modules
 
-module.exports = async (req, res) => {
+```javascript
+// const axios = require("axios");
+// module.exports = async (req, res) => {
+
+import axios from "axios";
+
+export default async (req, res) => {
   try {
     const response = await axios.get(
       "https://api.github.com/users/amirhosseinolyaei/repos",
