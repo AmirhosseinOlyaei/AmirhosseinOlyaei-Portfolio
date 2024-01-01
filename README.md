@@ -31,6 +31,44 @@ module.exports = async (req, res) => {
 };
 ```
 
+OR
+
+### Install Axios
+
+If you haven't already installed axios in your project, you can do so with npm:
+
+`npm install axios`
+
+### Refactor the Function to Use Axios
+
+```javascript
+const axios = require("axios");
+
+module.exports = async (req, res) => {
+  try {
+    const response = await axios.get(
+      "https://api.github.com/users/amirhosseinolyaei/repos",
+      {
+        headers: {
+          Authorization: `token ${process.env.GITHUB_TOKEN}`,
+        },
+      }
+    );
+
+    res.status(200).json(response.data);
+  } catch (error) {
+    console.error("Error fetching repositories:", error);
+    // Axios wraps the response error in error.response
+    if (error.response) {
+      // You can access more detailed info from the error response
+      res.status(error.response.status).json({ error: error.response.data });
+    } else {
+      res.status(500).json({ error: error.message });
+    }
+  }
+};
+```
+
 ### Step 3: Refactor Your Frontend Code
 
 Update your frontend code to call this serverless function instead of directly calling the GitHub API.
