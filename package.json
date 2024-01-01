@@ -5,6 +5,7 @@
     "debug": "^4.3.4",
     "fsevents": "^2.3.3",
     "node-fetch": "^2.7.0",
+    "node-modules": "^1.0.1",
     "uuid": "^9.0.1"
   }
 }
